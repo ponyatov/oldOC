@@ -3,7 +3,12 @@ MODULE       = $(notdir $(CURDIR))
 OS          ?= $(shell uname)
 
 APP          = oldoc
-include app/$(APP).mk
+HW           = qemu386
+
+include  app/$(APP).mk
+include   hw/$(HW).mk
+include  cpu/$(CPU).mk
+include arch/$(ARCH).mk
 # / <section:vars>
 # \ <section:dirs>
 CWD          = $(CURDIR)
